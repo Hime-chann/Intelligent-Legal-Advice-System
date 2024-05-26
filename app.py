@@ -32,7 +32,6 @@ if user_choice.lower() == 'yes':
                 else:
                     # Extract attorney type and where to go from the generated text
                     st.write(generated_text)
-
                     st.write(f"Suggested Attorney Type: {attorney_type}")
                     st.write(f"Suggested Authority Level: {authority_level}")
 else:
