@@ -22,6 +22,6 @@ def generate_text(prompt, max_tokens=150):
         if hasattr(response, 'generated_text'):
             return response.generated_text
         else:
-            return 'Unexpected response structure from the API'
+            return 'Unexpected response structure from the API...'
     except Exception as e:
         return f'Error: {str(e)}'
