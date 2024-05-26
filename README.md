@@ -1,6 +1,7 @@
 # Intelligent-Legal-Advice-System
 by: Princes Rose G. Manuel  
 BSCS 3B AI  
+  
 This application guides users through a multi-level prompting approach to provide
 legal advice using the Gemini API.
 
