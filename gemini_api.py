@@ -1,6 +1,7 @@
 import google.generativeai as genai
+import os
 
-# Directly set your API key here
+# Setup your API key
 api_key = "AIzaSyCSo2xaMpMmT10UhCRSWLiVZW3jlowiykw"
 if not api_key:
     raise ValueError("API key not found. Please set the GOOGLE_API_KEY environment variable.")
@@ -9,7 +10,7 @@ else:
 
 genai.configure(api_key=api_key)
 
-def generate_text(prompt, max_tokens=150):
+def generate_text(prompt, max_tokens=300):
     try:
         response = genai.generate_text(
             prompt=prompt,

@@ -48,10 +48,22 @@ def legal_advice_page():
 
                         # Example of parsing a string response
                         if isinstance(response, str):
-                            if "Attorney Type:" in response:
-                                attorney_type = response.split("Attorney Type:")[1].split("\n")[0].strip()
-                            if "Authority Level:" in response:
-                                authority_level = response.split("Authority Level:")[1].split("\n")[0].strip()
+                            # Extract attorney type if mentioned in the response
+                            if "attorney" in response.lower():
+                                attorney_type = "Lawyer"
+                            
+                            # Extract authority level if mentioned in the response
+                            if "authority" in response.lower():
+                                authority_level = "Varies"
+                        elif isinstance(response, dict) and 'generated_text' in response:
+                            generated_text = response['generated_text']
+                            # Extract attorney type if mentioned in the generated text
+                            if "attorney" in generated_text.lower():
+                                attorney_type = "Lawyer"
+                            
+                            # Extract authority level if mentioned in the generated text
+                            if "authority" in generated_text.lower():
+                                authority_level = "Varies"
 
                         st.write(f"Suggested Attorney Type: {attorney_type}")
                         st.write(f"Suggested Authority Level: {authority_level}")
