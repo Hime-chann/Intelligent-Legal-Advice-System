@@ -15,13 +15,10 @@ def generate_text(prompt, max_tokens=150):
             prompt=prompt,
             max_output_tokens=max_tokens
         )
-        print(f"Full Response: {response}")  # Print the full response object
         print(f"Response Type: {type(response)}")  # Print the type of the response object
-
-        # Check the attributes of the response object
-        if hasattr(response, '__dict__'):
-            print(f"Response Attributes: {response.__dict__}")
-
+        print(f"Response Dir: {dir(response)}")    # Print all attributes and methods of the response object
+        print(f"Response: {response}")  # Print the full response object
+        
         # Attempt to access 'generated_text' attribute
         if hasattr(response, 'generated_text'):
             return response.generated_text
