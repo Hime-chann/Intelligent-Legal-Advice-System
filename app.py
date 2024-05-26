@@ -38,7 +38,7 @@ def legal_advice_page():
                     if isinstance(response, str) and response.startswith("Error"):
                         st.error(response)
                     else:
-                        # Display the generated text
+                        # Display the full API response
                         st.write("API Response:")
                         st.write(response)
                         
