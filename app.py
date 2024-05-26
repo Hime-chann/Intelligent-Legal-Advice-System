@@ -3,12 +3,14 @@ from gemini_api import generate_text
 from prompts import get_initial_prompt, get_country_prompt, get_age_prompt, get_query_prompt
 
 st.title("Intelligent Legal Advice System")
+
 # Initial Prompt
 initial_prompt = get_initial_prompt()
 user_choice = st.text_input(initial_prompt)
 
 if user_choice.lower() == 'yes':
     country_prompt, countries = get_country_prompt()
+    countries.extend(["Philippines", "India", "Germany", "France", "Japan"])  # Add more countries
     country_choice = st.selectbox(country_prompt, countries)
     
     if country_choice:
@@ -38,4 +40,3 @@ if user_choice.lower() == 'yes':
                     st.write(f"Suggested Authority Level: {authority_level}")
 else:
     st.write("Please enter 'Yes' to proceed with legal advice.")
-
