@@ -27,14 +27,13 @@ if user_choice.lower() == 'yes':
                 st.write("Generating your legal advice...")
                 generated_text = generate_text(final_prompt)
                 
-                # Extract attorney type and where to go from the generated text
-                st.write(generated_text)
+                if "Error" in generated_text:
+                    st.error(generated_text)
+                else:
+                    # Extract attorney type and where to go from the generated text
+                    st.write(generated_text)
 
-                # Dummy extraction logic (You might need to parse the generated text properly)
-                attorney_type = "family"  # Extracted from generated_text
-                authority_level = "court"  # Extracted from generated_text
-
-                st.write(f"Suggested Attorney Type: {attorney_type}")
-                st.write(f"Suggested Authority Level: {authority_level}")
+                    st.write(f"Suggested Attorney Type: {attorney_type}")
+                    st.write(f"Suggested Authority Level: {authority_level}")
 else:
     st.write("Please enter 'Yes' to proceed with legal advice.")
