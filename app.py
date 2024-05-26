@@ -39,18 +39,19 @@ def legal_advice_page():
                         st.error(response)
                     else:
                         # Display the generated text
+                        st.write("API Response:")
                         st.write(response)
                         
-                        # Dummy extraction logic (You might need to parse the generated text properly)
-                        # Assuming the response text includes lines like "Attorney Type: XYZ" and "Authority Level: ABC"
+                        # Extract information based on actual response structure
                         attorney_type = "Not specified"
                         authority_level = "Not specified"
 
-                        if "Attorney Type:" in response:
-                            attorney_type = response.split("Attorney Type:")[1].split("\n")[0].strip()
-
-                        if "Authority Level:" in response:
-                            authority_level = response.split("Authority Level:")[1].split("\n")[0].strip()
+                        # Example of parsing a string response
+                        if isinstance(response, str):
+                            if "Attorney Type:" in response:
+                                attorney_type = response.split("Attorney Type:")[1].split("\n")[0].strip()
+                            if "Authority Level:" in response:
+                                authority_level = response.split("Authority Level:")[1].split("\n")[0].strip()
 
                         st.write(f"Suggested Attorney Type: {attorney_type}")
                         st.write(f"Suggested Authority Level: {authority_level}")
