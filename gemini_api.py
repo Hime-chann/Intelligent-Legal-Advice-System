@@ -16,8 +16,13 @@ def generate_text(prompt, max_tokens=150):
             max_output_tokens=max_tokens
         )
         print(f"Full Response: {response}")  # Print the full response object
+        print(f"Response Type: {type(response)}")  # Print the type of the response object
 
-        # Check the type of the response and its attributes
+        # Check the attributes of the response object
+        if hasattr(response, '__dict__'):
+            print(f"Response Attributes: {response.__dict__}")
+
+        # Attempt to access 'generated_text' attribute
         if hasattr(response, 'generated_text'):
             return response.generated_text
         elif isinstance(response, dict) and 'generated_text' in response:
