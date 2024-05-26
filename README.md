@@ -1,13 +1,13 @@
 # Intelligent-Legal-Advice-System
-by: Princes Rose G. Manuel \n BSCS 3B AI
+by: Princes Rose G. Manuel /nBSCS 3B AI
 This application guides users through a multi-level prompting approach to provide
 legal advice using the Gemini API.
 
 ## Function:
-● Asks users if they need legal advice.
-● Collects user information (country, age, legal issue).
-● Generates legal advice based on the provided information using an LLM.
-● Extracts "Attorney Type" and "Authority Level" from the generated text.
+● Asks users if they need legal advice./n
+● Collects user information (country, age, legal issue)./n
+● Generates legal advice based on the provided information using an LLM./n
+● Extracts "Attorney Type" and "Authority Level" from the generated text./n
 
 ## Technology Stack:
 ● Streamlit (web framework)
