@@ -1,8 +1,7 @@
 import google.generativeai as genai
-import os
 
-# Setup your API key
-api_key = os.getenv('GOOGLE_API_KEY')
+# Directly set your API key here
+api_key = "AIzaSyCSo2xaMpMmT10UhCRSWLiVZW3jlowiykw"
 if not api_key:
     raise ValueError("API key not found. Please set the GOOGLE_API_KEY environment variable.")
 else:
@@ -22,6 +21,6 @@ def generate_text(prompt, max_tokens=150):
         if hasattr(response, 'generated_text'):
             return response.generated_text
         else:
-            return 'Unexpected response structure from the API...'
+            return 'Unexpected response structure from the API'
     except Exception as e:
         return f'Error: {str(e)}'
