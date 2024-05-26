@@ -1,21 +1,17 @@
 # gemini_api.py
 
-import requests
+import google.generativeai as genai
+import os
 
-API_KEY = 'AIzaSyC_B3AKd4OWZjh-iIYEjdJ9t0xBKAvhqqg'
-API_URL = 'https://aistudio.google.com/app/apikey'  # Hypothetical endpoint
+# Setup your API key
+genai.configure(api_key=os.getenv('AIzaSyCSo2xaMpMmT10UhCRSWLiVZW3jlowiykw'))
 
 def generate_text(prompt, max_tokens=150):
-    headers = {
-        'Authorization': f'Bearer {API_KEY}',
-        'Content-Type': 'application/json'
-    }
-    data = {
-        'prompt': prompt,
-        'max_tokens': max_tokens
-    }
-    response = requests.post(API_URL, headers=headers, json=data)
-    if response.status_code == 200:
-        return response.json().get('text', '')
-    else:
-        return 'Error: Unable to fetch response from API'
+    try:
+        response = genai.generate_text(
+            prompt=prompt,
+            max_output_tokens=max_tokens
+        )
+        return response['generated_text']
+    except Exception as e:
+        return f'Error: {str(e)}'
