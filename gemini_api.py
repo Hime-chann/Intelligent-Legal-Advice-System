@@ -17,7 +17,11 @@ def generate_text(prompt, max_tokens=150):
             max_output_tokens=max_tokens
         )
         print(f"Response: {response}")  # Debug print to check the response structure
-        # Assuming response['generated_text'] is correct
-        return response['generated_text'] if 'generated_text' in response else 'Unexpected response structure from the API'
+        
+        # Check if 'generated_text' or similar attribute exists in the response
+        if hasattr(response, 'generated_text'):
+            return response.generated_text
+        else:
+            return 'Unexpected response structure from the API'
     except Exception as e:
         return f'Error: {str(e)}'
