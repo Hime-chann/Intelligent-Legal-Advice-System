@@ -4,11 +4,11 @@ from prompts import get_initial_prompt, get_country_prompt, get_age_prompt, get_
 
 def main():
     st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Go to", ["Legal Advice", "README"])
+    page = st.sidebar.radio("Go to", ["Legal Advice", "About"])
 
     if page == "Legal Advice":
         legal_advice_page()
-    elif page == "About":
+    elif page == "README":
         readme_page()
 
 def legal_advice_page():
