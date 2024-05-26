@@ -3,9 +3,6 @@ from gemini_api import generate_text
 from prompts import get_initial_prompt, get_country_prompt, get_age_prompt, get_query_prompt
 
 st.title("Intelligent Legal Advice System")
-# Set the environment variable (Not recommended for production)
-os.environ['GOOGLE_API_KEY'] = 'AIzaSyCSo2xaMpMmT10UhCRSWLiVZW3jlowiykw'
-
 # Initial Prompt
 initial_prompt = get_initial_prompt()
 user_choice = st.text_input(initial_prompt)
