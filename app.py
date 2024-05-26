@@ -1,6 +1,9 @@
-# app.py
-
 import streamlit as st
+import os
+
+# Set the environment variable (Not recommended for production)
+os.environ['GOOGLE_API_KEY'] = 'AIzaSyCSo2xaMpMmT10UhCRSWLiVZW3jlowiykw'
+
 from gemini_api import generate_text
 from prompts import get_initial_prompt, get_country_prompt, get_age_prompt, get_query_prompt
 
@@ -32,6 +35,11 @@ if user_choice.lower() == 'yes':
                 else:
                     # Extract attorney type and where to go from the generated text
                     st.write(generated_text)
+
+                    # Dummy extraction logic (You might need to parse the generated text properly)
+                    attorney_type = "family"  # Extracted from generated_text
+                    authority_level = "court"  # Extracted from generated_text
+
                     st.write(f"Suggested Attorney Type: {attorney_type}")
                     st.write(f"Suggested Authority Level: {authority_level}")
 else:
