@@ -4,3 +4,5 @@ streamlit==1.13.0
 requests==2.31.0
 protobuf==3.20.3
 google-generativeai==0.1.0  # Ensure compatibility with protobuf
+gemini_api
+prompts
