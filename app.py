@@ -10,7 +10,6 @@ user_choice = st.text_input(initial_prompt)
 
 if user_choice.lower() == 'yes':
     country_prompt, countries = get_country_prompt()
-    countries.extend(["Philippines", "India", "Germany", "France", "Japan"])  # Add more countries
     country_choice = st.selectbox(country_prompt, countries)
     
     if country_choice:
@@ -24,19 +23,13 @@ if user_choice.lower() == 'yes':
             if legal_query:
                 final_prompt = f"Country: {country_choice}, Age: {age}, Query: {legal_query}"
                 st.write("Generating your legal advice...")
-                generated_text = generate_text(final_prompt)
+                response = generate_text(final_prompt)
                 
-                if "Error" in generated_text:
-                    st.error(generated_text)
+                if isinstance(response, str) and response.startswith("Error"):
+                    st.error(response)
                 else:
                     # Display the generated text
-                    st.write(generated_text)
+                    st.write(response)
 
-                    # Dummy extraction logic (You might need to parse the generated text properly)
-                    attorney_type = "family"  # Extracted from generated_text
-                    authority_level = "court"  # Extracted from generated_text
-
-                    st.write(f"Suggested Attorney Type: {attorney_type}")
-                    st.write(f"Suggested Authority Level: {authority_level}")
 else:
     st.write("Please enter 'Yes' to proceed with legal advice.")
