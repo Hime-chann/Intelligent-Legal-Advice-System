@@ -6,7 +6,7 @@ api_key = os.getenv('GOOGLE_API_KEY')
 if not api_key:
     raise ValueError("API key not found. Please set the GOOGLE_API_KEY environment variable.")
 else:
-    print(f"API Key: {AIzaSyCSo2xaMpMmT10UhCRSWLiVZW3jlowiykw}")  # Debug print to check API key
+    print(f"API Key: {api_key}")  # Debug print to check API key
 
 genai.configure(api_key=api_key)
 
