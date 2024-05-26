@@ -8,7 +8,7 @@ def main():
 
     if page == "Legal Advice":
         legal_advice_page()
-    elif page == "README":
+    elif page == "README.md":
         readme_page()
 
 def legal_advice_page():
