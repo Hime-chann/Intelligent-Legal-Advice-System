@@ -14,6 +14,10 @@ def generate_text(prompt, max_tokens=150):
             prompt=prompt,
             max_output_tokens=max_tokens
         )
-        return response['generated_text']
+        # Assuming the response is a dictionary-like object, adjust this as per actual response structure
+        if 'generated_text' in response:
+            return response['generated_text']
+        else:
+            return 'Unexpected response structure from the API'
     except Exception as e:
         return f'Error: {str(e)}'
