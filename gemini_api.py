@@ -2,7 +2,7 @@ import google.generativeai as genai
 import os
 
 # Setup your API key
-api_key = "AIzaSyCSo2xaMpMmT10UhCRSWLiVZW3jlowiykw"
+api_key = "AIzaSyDUxtlRuK2rZ-Yx2YtA9xrNvG_qzk4wKO0"
 if not api_key:
     raise ValueError("API key not found. Please set the GOOGLE_API_KEY environment variable.")
 else:
